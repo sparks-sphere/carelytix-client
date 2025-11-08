@@ -13,6 +13,16 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+    {
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
+    rules: {
+      // Automatically sort imports and exports
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+    },
+  },
 ]);
 
 export default eslintConfig;
