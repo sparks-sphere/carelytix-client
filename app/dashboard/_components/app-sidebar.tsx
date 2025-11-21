@@ -16,6 +16,7 @@ import {
   PackageCheck,
   ScissorsSquare,
   Settings2,
+  UserCheck2,
   UserCog,
   Users,
 } from "lucide-react"
@@ -39,9 +40,9 @@ const data = {
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Carelytix(Admin)",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
+      plan: "By Sparks Sphere Softwares",
     },
     {
       name: "Acme Corp.",
@@ -138,16 +139,37 @@ const data = {
       ],
     },
   ],
+  navMainData: [
+    {
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: LayoutDashboard,
+      isActive: true,
+    },
+    {
+      title: "Pricing",
+      url: "/pricing",
+      icon: CreditCard,
+      isActive: true,
+    },
+    {
+      title: "Blog",
+      url: "/blog",
+      icon: UserCheck2,
+      isActive: true,
+    },
+  ]
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const user = "Admin";
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={user !== "Admin" ? data.navMain : data.navMainData} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
