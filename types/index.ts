@@ -3,7 +3,9 @@ export interface User {
   email: string;
   name: string;
   isVerified: boolean;
-  createdAt?: string;
+  createdAt?: string | null;
+  primaryContactNo?: string | null;
+  userMeta?: Record<string, any> | null;
 }
 
 export interface DashboardData {
